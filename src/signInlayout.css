@@ -1,0 +1,19 @@
+#KeyOutLinded{ 
+   fill: gray;
+
+}
+
+.image{
+    background-image: url("../../image/WELCOMEPAGE.png");
+    background-repeat: no-repeat, repeat;
+}
+.password-class:focus{
+    border: none;
+    outline: none;
+    box-shadow: none;
+}
+.password-class{
+    border: none;
+    outline: none;
+    box-shadow: none;
+}
