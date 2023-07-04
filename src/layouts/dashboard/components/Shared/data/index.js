@@ -73,7 +73,7 @@ export default function Data() {
   useEffect(() => {
     async function fetchData() {
       const { data } = await axios.get(
-        "https://swift-jet-backend.onrender.com/api/v1/admin/summary"
+        "http://localhost:8000/api/v1/admin/summary"
       );
 
       console.log(data);
@@ -88,7 +88,7 @@ export default function Data() {
           status:(<MDButton variant="text" size="small" color={getButtonColor(item.status)}>{item.status}</MDButton>) ,
           trip_type: item.booking_details.tripType,
           email: item.user.email,
-          link: (<Link href="/billing" onClick={() => {
+          link: (<Link href="/booking" onClick={() => {
             localStorage.setItem("booking_number", JSON.stringify(item.booking_number));
 
           }}>view</Link>)

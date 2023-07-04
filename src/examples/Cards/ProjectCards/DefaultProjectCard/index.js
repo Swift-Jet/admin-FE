@@ -86,7 +86,6 @@ function DefaultProjectCard({ image, label, title, description, action, authors,
               component={Link}
               to={action.route}
               variant="h6"
-
             >
               {title}
             </MDTypography>
@@ -96,7 +95,7 @@ function DefaultProjectCard({ image, label, title, description, action, authors,
               href={action.route}
               target="_blank"
               rel="noreferrer"
-              variant="6"
+              variant="h6"
 
             >
               {title}

@@ -9,6 +9,7 @@ import SignUp from "layouts/authentication/sign-up";
 
 // @mui icons
 import Icon from "@mui/material/Icon";
+import EmptyLeg from "layouts/empty-leg";
 
 const routes = [
   {
@@ -55,9 +56,17 @@ const routes = [
     type: "collapse",
     name: "Aircrafts",
     key: "profile",
-    icon: <Icon fontSize="small">person</Icon>,
-    route: "/profile",
+    icon: <Icon fontSize="small">flight</Icon>,
+    route: "/aircraft",
     component: <Profile />,
+  },
+  {
+    type: "collapse",
+    name: "Add Flight",
+    key: "add flight",
+    icon: <Icon fontSize="small">add flight</Icon>,
+    route: "/add-flight",
+    component: <EmptyLeg />,
   },
 ];
 

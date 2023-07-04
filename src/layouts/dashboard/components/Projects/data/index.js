@@ -24,30 +24,7 @@ import MDButton from "components/MDButton";
 
 export default function Data() {
 
-  const avatars = (members) =>
-    members.map(([image, name]) => (
-      <Tooltip key={name} title={name} placeholder="bottom">
-        <MDAvatar
-          src={image}
-          alt="name"
-          size="xs"
-          sx={{
-            border: ({ borders: { borderWidth }, palette: { white } }) =>
-              `${borderWidth[2]} solid ${white.main}`,
-            cursor: "pointer",
-            position: "relative",
 
-            "&:not(:first-of-type)": {
-              ml: -1.25,
-            },
-
-            "&:hover, &:focus": {
-              zIndex: "10",
-            },
-          }}
-        />
-      </Tooltip>
-    ));
 
   const Company = ({ image, name }) => (
     <MDBox display="flex" alignItems="center" lineHeight={1}>
@@ -73,12 +50,11 @@ export default function Data() {
   useEffect(() => {
     async function fetchData() {
       const { data } = await axios.get(
-        "https://swift-jet-backend.onrender.com/api/v1/admin/summary"
+        "http://localhost:8000/api/v1/admin/summary"
       );
 
       console.log(data);
       const _data = data?.data.bookings.filter((item) => item.booking_details.tripType != "Shared")
-      console.log("_data",_data);
       var newObj = {};
 
       let newArr = _data?.map((item) => {
@@ -88,7 +64,7 @@ export default function Data() {
           status:(<MDButton variant="text" size="small" color={getButtonColor(item.status)}>{item.status}</MDButton>) ,
           trip_type: item.booking_details.tripType,
           email: item.user.email,
-          link: (<Link href="/billing" onClick={() => {
+          link: (<Link href="/booking" onClick={() => {
             localStorage.setItem("booking_number", JSON.stringify(item.booking_number));
 
           }}>view</Link>)

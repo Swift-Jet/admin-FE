@@ -38,7 +38,7 @@ function BillingInformation() {
   useEffect(() => {
     async function fetchData() {
       const { data } = await axios.get(
-        `https://swift-jet-backend.onrender.com/api/v1/admin/single?booking_number=${booking_no}`
+        `http://localhost:8000/api/v1/admin/single?booking_number=${booking_no}`
       );
       setDetails(data?.data);
       console.log(data?.data);

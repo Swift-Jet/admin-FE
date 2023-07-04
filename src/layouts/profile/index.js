@@ -30,7 +30,7 @@ function Profile() {
   useEffect(() => {
     async function fetchData() {
       const { data } = await axios.get(
-        "https://swift-jet-backend.onrender.com/api/v1/aircraft/all"
+        "http://localhost:8000/api/v1/aircraft/all"
       );
       setAircrafts(data?.data);
     }

@@ -70,7 +70,7 @@ function Aircraft() {
         data.append("image_url_5", image5);
         e.preventDefault();
         axios
-            .post(`https://swift-jet-backend.onrender.com/api/v1/aircraft/add`, data)
+            .post(`http://localhost:8000/api/v1/aircraft/add`, data)
             .then((data) => {
                 setLoading(false)
               toast("Aircraft added successflly")

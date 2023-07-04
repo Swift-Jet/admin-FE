@@ -170,7 +170,7 @@ export default function App() {
             }
           />
           <Route
-            path="/billing"
+            path="/booking"
             element={
               <ProtectedRoute isLoggedIn={"true"}>
                 <Billing />
@@ -217,7 +217,7 @@ export default function App() {
           }
         />
         <Route
-          path="/billing"
+          path="/booking"
           element={
             <ProtectedRoute isLoggedIn={"true"}>
               <Billing />
@@ -239,7 +239,7 @@ export default function App() {
             <PaymentMethod />
           </ProtectedRoute>
         } />
-        <Route path="/profile" element={<ProtectedRoute isLoggedIn={"true"}>
+        <Route path="/aircraft" element={<ProtectedRoute isLoggedIn={"true"}>
           <Profile />
         </ProtectedRoute>} />
       </Routes>
