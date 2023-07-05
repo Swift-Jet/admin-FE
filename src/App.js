@@ -46,6 +46,7 @@ import Aircraft from "layouts/aircraft";
 import PaymentMethod from "layouts/billing/components/PaymentMethod";
 import Profile from "layouts/profile";
 import EmptyLeg from "layouts/empty-leg";
+import SingleAircraft from "layouts/single-aircraft";
 
 export default function App() {
   const [controller, dispatch] = useMaterialUIController();
@@ -241,6 +242,9 @@ export default function App() {
         } />
         <Route path="/aircraft" element={<ProtectedRoute isLoggedIn={"true"}>
           <Profile />
+        </ProtectedRoute>} />
+        <Route path="/single-aircraft/:id" element={<ProtectedRoute isLoggedIn={"true"}>
+          <SingleAircraft />
         </ProtectedRoute>} />
       </Routes>
     </ThemeProvider>

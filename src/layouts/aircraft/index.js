@@ -21,14 +21,8 @@ function Aircraft() {
     const [passwordType, setPasswordType] = useState("password");
     const [image, setImage] = useState(null);
     const [image2, setImage2] = useState(null);
-    const [image3, setImage3] = useState(null);
-    const [image4, setImage4] = useState(null);
-    const [image5, setImage5] = useState(null);
     const [previewURL, setPreviewURL] = useState('');
     const [previewURL2, setPreviewURL2] = useState('');
-    const [previewURL3, setPreviewURL3] = useState('');
-    const [previewURL4, setPreviewURL4] = useState('');
-    const [previewURL5, setPreviewURL5] = useState('');
     const [manufacturer, setManufacturer] = useState('')
     const [model, setModel] = useState('')
     const [seat, setSeat] = useState('')
@@ -65,9 +59,7 @@ function Aircraft() {
         data.append("overview_summary", summary);
         data.append("image_url", image);
         data.append("image_url_2", image2);
-        data.append("image_url_3", image3);
-        data.append("image_url_4", image4);
-        data.append("image_url_5", image5);
+   
         e.preventDefault();
         axios
             .post(`http://localhost:8000/api/v1/aircraft/add`, data)
@@ -171,7 +163,7 @@ function Aircraft() {
                                     />
                                     {previewURL2 && <img height="200px" width="200px" src={previewURL2} alt="Preview" />}
                                 </MDBox>
-                                <MDBox mb={2}>
+                                {/* <MDBox mb={2}>
                                     <MDInput
                                         md={2}
                                         type="file"
@@ -212,7 +204,7 @@ function Aircraft() {
                                         fullWidth
                                     />
                                     {previewURL5 && <img height="200px" width="200px" src={previewURL5} alt="Preview" />}
-                                </MDBox>
+                                </MDBox> */}
 
                                 <MDBox mt={4} mb={1}>
                                     <MDButton variant="gradient" onClick={handleSubmit} color="success" fullWidth>

@@ -109,7 +109,7 @@ function Profile() {
                     description={item.summary}
                     action={{
                       type: "internal",
-                      route: "/pages/profile/profile-overview",
+                      route: `/single-aircraft/${item._id}`,
                       color: "info",
                       label: "view details",
                     }}

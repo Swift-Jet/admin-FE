@@ -114,11 +114,11 @@ function BillShared({ name, city, country, d_name, d_city, d_country, d_date, d_
   );
 }
 
-Bill.defaultProps = {
+BillShared.defaultProps = {
   noGutter: false,
 };
 
-Bill.propTypes = {
+BillShared.propTypes = {
   name: PropTypes.string.isRequired,
   company: PropTypes.string.isRequired,
   email: PropTypes.string.isRequired,

@@ -116,6 +116,9 @@ function DefaultProjectCard({ image, label, title, description, action, authors,
                 variant="outlined"
                 size="small"
                 color={action.color}
+                onClick={() => {
+                  localStorage.setItem("id", JSON.stringify("id"));
+                }}
               >
                 {action.label}
               </MDButton>
@@ -128,6 +131,10 @@ function DefaultProjectCard({ image, label, title, description, action, authors,
                 variant="outlined"
                 size="small"
                 color={action.color}
+                onClick={() => {
+                  localStorage.setItem("id", JSON.stringify("id"));
+      
+                }}
               >
                 {action.label}
               </MDButton>

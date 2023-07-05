@@ -7,6 +7,7 @@ import Transactions from "../Transactions";
 import MDTypography from "components/MDTypography";
 import MDButton from "components/MDButton";
 import Bill from "layouts/billing/components/Bill";
+import BillShared from "../BillShared";
 
 function BillingInformation() {
   let booking_no = JSON.parse(localStorage.getItem("booking_number"))
@@ -96,13 +97,13 @@ function BillingInformation() {
               </MDBox>
               {
                 details?.booking_details?.tripType == "Shared" ?
-                  <Bill
-                    name={details?.booking_details?.source?.name}
-                    city={details?.booking_details?.source?.iata_code}
-                    country={details?.booking_details?.source?.country_code}
-                    d_name={details?.booking_details?.destination?.name}
-                    d_city={details?.booking_details?.destination?.iata_code}
-                    d_country={details?.booking_details?.destination?.country_code}
+                  <BillShared
+                    name={details?.booking_details?.source?.value.name}
+                    city={details?.booking_details?.source?.value.iata_code}
+                    country={details?.booking_details?.source?.value.country_code}
+                    d_name={details?.booking_details?.destination?.value.name}
+                    d_city={details?.booking_details?.destination?.value.iata_code}
+                    d_country={details?.booking_details?.destination?.value.country_code}
                     d_date={details?.booking_details?.depatureDate}
                     d_time={details?.booking_details?.depatureTime}
                     vat={details?.booking_details?.tripType}
