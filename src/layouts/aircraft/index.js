@@ -21,8 +21,12 @@ function Aircraft() {
     const [passwordType, setPasswordType] = useState("password");
     const [image, setImage] = useState(null);
     const [image2, setImage2] = useState(null);
+    const [image3, setImage3] = useState(null);
+    const [image4, setImage4] = useState(null);
     const [previewURL, setPreviewURL] = useState('');
     const [previewURL2, setPreviewURL2] = useState('');
+    const [previewURL3, setPreviewURL3] = useState('');
+    const [previewURL4, setPreviewURL4] = useState('');
     const [manufacturer, setManufacturer] = useState('')
     const [model, setModel] = useState('')
     const [seat, setSeat] = useState('')
@@ -59,6 +63,8 @@ function Aircraft() {
         data.append("overview_summary", summary);
         data.append("image_url", image);
         data.append("image_url_2", image2);
+        data.append("image_url_3", image);
+        data.append("image_url_4", image2);
    
         e.preventDefault();
         axios
@@ -163,7 +169,7 @@ function Aircraft() {
                                     />
                                     {previewURL2 && <img height="200px" width="200px" src={previewURL2} alt="Preview" />}
                                 </MDBox>
-                                {/* <MDBox mb={2}>
+                                 <MDBox mb={2}>
                                     <MDInput
                                         md={2}
                                         type="file"
@@ -190,21 +196,8 @@ function Aircraft() {
                                         fullWidth
                                     />
                                     {previewURL4 && <img height="200px" width="200px" src={previewURL4} alt="Preview" />}
-                                </MDBox>
-                                <MDBox mb={2}>
-                                    <MDInput
-                                        md={2}
-                                        type="file"
-                                        name="file"
-                                        onChange={(e) => {
-                                            const file = e.target.files[0];
-                                            setImage5(file);
-                                            setPreviewURL5(URL.createObjectURL(file));
-                                        }}
-                                        fullWidth
-                                    />
-                                    {previewURL5 && <img height="200px" width="200px" src={previewURL5} alt="Preview" />}
-                                </MDBox> */}
+                                </MDBox> 
+                              
 
                                 <MDBox mt={4} mb={1}>
                                     <MDButton variant="gradient" onClick={handleSubmit} color="success" fullWidth>

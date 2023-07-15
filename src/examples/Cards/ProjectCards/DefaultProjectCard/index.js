@@ -30,7 +30,15 @@ import MDTypography from "components/MDTypography";
 import MDButton from "components/MDButton";
 import MDAvatar from "components/MDAvatar";
 
-function DefaultProjectCard({ image, label, title, description, action, authors, click }) {
+function DefaultProjectCard({
+  image,
+  label,
+  title,
+  description,
+  action,
+  authors,
+  click,
+}) {
   const renderAuthors = authors.map(({ image: media, name }) => (
     <Tooltip key={name} title={name} placement="bottom">
       <MDAvatar
@@ -70,6 +78,8 @@ function DefaultProjectCard({ image, label, title, description, action, authors,
           sx={{
             maxWidth: "100%",
             margin: 0,
+            width: "100%",
+            height: "200px",
             boxShadow: ({ boxShadows: { md } }) => md,
             objectFit: "cover",
             objectPosition: "center",
@@ -77,7 +87,13 @@ function DefaultProjectCard({ image, label, title, description, action, authors,
         />
       </MDBox>
       <MDBox mt={1} mx={0.5}>
-        <MDTypography variant="button" fontWeight="regular" color="text" textTransform="capitalize">
+        <MDTypography
+          height="50px"
+          variant="button"
+          fontWeight="regular"
+          color="text"
+          textTransform="capitalize"
+        >
           {label}
         </MDTypography>
         <MDBox mb={1}>
@@ -86,6 +102,8 @@ function DefaultProjectCard({ image, label, title, description, action, authors,
               component={Link}
               to={action.route}
               variant="h6"
+              height={5}
+              display="block"
             >
               {title}
             </MDTypography>
@@ -96,19 +114,30 @@ function DefaultProjectCard({ image, label, title, description, action, authors,
               target="_blank"
               rel="noreferrer"
               variant="h6"
-
+              height="100px"
             >
               {title}
             </MDTypography>
           )}
         </MDBox>
         <MDBox mb={3} lineHeight={0}>
-          <MDTypography variant="button" fontWeight="light" color="text">
+          <MDTypography
+            height="100px"
+            variant="button"
+            fontWeight="light"
+            color="text"
+          >
             {description}
           </MDTypography>
         </MDBox>
-        {
-          action ==="" ? <></> : <MDBox display="flex" justifyContent="space-between" alignItems="center">
+        {action === "" ? (
+          <></>
+        ) : (
+          <MDBox
+            display="flex"
+            justifyContent="space-between"
+            alignItems="center"
+          >
             {action?.type === "internal" ? (
               <MDButton
                 component={Link}
@@ -119,6 +148,7 @@ function DefaultProjectCard({ image, label, title, description, action, authors,
                 onClick={() => {
                   localStorage.setItem("id", JSON.stringify("id"));
                 }}
+                height="100px"
               >
                 {action.label}
               </MDButton>
@@ -133,16 +163,15 @@ function DefaultProjectCard({ image, label, title, description, action, authors,
                 color={action.color}
                 onClick={() => {
                   localStorage.setItem("id", JSON.stringify("id"));
-      
                 }}
+                height="100px"
               >
                 {action.label}
               </MDButton>
             )}
             <MDBox display="flex">{renderAuthors}</MDBox>
           </MDBox>
-        }
-
+        )}
       </MDBox>
     </Card>
   );

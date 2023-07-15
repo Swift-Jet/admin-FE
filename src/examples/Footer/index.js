@@ -76,8 +76,7 @@ function Footer({ company, links }) {
 
 Footer.defaultProps = {
   links: [
-    { href: "https://www.creative-tim.com/presentation", name: "About Us" },
-    { href: "https://www.creative-tim.com/blog", name: "Blog" },
+
   ],
 };
 

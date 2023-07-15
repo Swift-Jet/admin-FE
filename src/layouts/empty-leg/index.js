@@ -20,6 +20,9 @@ function EmptyLeg() {
     const [val, setVal] = useState("");
     const [val2, setVal2] = useState("");
     const [aircrafts, setAircrafts] = useState([]);
+    const [flights, setFlights] = useState([]);
+    const [highlight, setHighlight] = useState("text")
+    const [highlight2, setHighlight2] = useState("text")
     const [formData, setFormData] = useState(
         {
             flight_type: null,
@@ -43,7 +46,14 @@ function EmptyLeg() {
             );
             setAircrafts(data?.data);
         }
+        async function fetchFlights() {
+            const { data } = await axios.get(
+                `http://localhost:8000/api/v1/flight/all`
+            );
+            setFlights(data?.data);
+        }
         fetchData();
+        fetchFlights();
     }, []);
     const handleSelectChange = (value) => {
         let newFormData = formData;
@@ -105,7 +115,7 @@ function EmptyLeg() {
             })
             .catch((error) => {
                 setLoading(false);
-                console.log(error);
+             
                 toast(error?.response?.data?.error);
             });
 
@@ -117,6 +127,13 @@ function EmptyLeg() {
         alert(`You have selected ${value?.model}`)
     }
     const handleFlightType = (value) => {
+        if(value === "Shared"){
+            setHighlight("gradient")
+            setHighlight2("text")
+        }else{
+            setHighlight2("gradient")
+            setHighlight("text")
+        }
         let newFormData = formData;
         newFormData.flight_type = value;
         setFormData(newFormData);
@@ -138,8 +155,8 @@ function EmptyLeg() {
                                     <br></br>
                                     <br></br>
                                     <Grid display={"flex"} direction={"flex"} justifyContent={"space-between"} mb={2} gap={"2"}>
-                                        <MDButton variant="text" color="warning" onClick={() => handleFlightType("Shared")}>Shared</MDButton>
-                                        <MDButton variant="text" color="warning" onClick={() => handleFlightType("Empty Leg")}>Empty Leg</MDButton>
+                                        <MDButton variant={highlight2} color="warning" onClick={() => handleFlightType("Sharedd")}>Shared</MDButton>
+                                        <MDButton variant={highlight} color="warning" onClick={() => handleFlightType("Shared")}>Empty Leg</MDButton>
                                     </Grid>
 
                                 </MDBox>
@@ -215,16 +232,15 @@ function EmptyLeg() {
                                     <MDButton variant="gradient" color="success" fullWidth onClick={
                                         handleSubmit
                                     }>
-                                        {loading ? "Processing..." : "Add Aircraft"}
+                                        {loading ? "Processing..." : "Add Flight"}
                                     </MDButton>
                                 </MDBox>
 
                             </MDBox>
                         </MDBox>
                     </Card>
-                </Grid>
-                <Grid item xs={12} md={8} lg={6} xl={6} overflow={"scroll"} height={"1000px"}>
-                    <Card>
+                    <br></br>
+                    <Card mt={4}>
                         <MDBox pt={4} pb={3} px={3}>
                             <MDTypography variant="h6" pb={3} textTransform="capitalize">
                                 Select Aircraft
@@ -234,12 +250,40 @@ function EmptyLeg() {
                                     <Grid container spacing={6}>
                                         {
                                             aircrafts.map((item) => (
-                                                <Grid item xs={12} md={6} xl={6} onClick={() => { handleAircraft(item) }} style={{ cursor: "pointer" }}>
+                                                <Grid item xs={12} md={6} xl={6} onClick={() => { handleAircraft(item);}} style={{ cursor: "pointer" }}>
                                                     <DefaultProjectCard
                                                         image={item.image_url}
                                                         label={item.manufacturer}
                                                         title={item.model}
                                                         description={item.summary}
+                                                        action={""}
+                                                    />
+                                                </Grid>
+                                            ))
+                                        }
+                                    </Grid>
+                                </MDBox>
+                            </MDBox>
+                        </MDBox>
+                    </Card>
+                </Grid>
+                <Grid item xs={12} md={8} lg={6} xl={6} overflow={"scroll"} height={"1000px"}>
+                    <Card>
+                        <MDBox pt={4} pb={3} px={3}>
+                            <MDTypography variant="h6" pb={3} textTransform="capitalize">
+                                All Empty Leg Flights 
+                            </MDTypography>
+                            <MDBox component="form" role="form" gap={"2"}>
+                                <MDBox p={2}>
+                                    <Grid container spacing={6}>
+                                        {
+                                            flights.map((item) => (
+                                                <Grid item xs={12} md={6} xl={6} style={{ cursor: "pointer" }}>
+                                                    <DefaultProjectCard
+                                                        image={item.aircraft.image_url}
+                                                        description={item.aircraft.model}
+                                                        label={item.departure_airport.label + " " +  "|" + " " + item.destination_airport.label }
+                                                        title={"$"+item.inbound_price}
                                                         action={""}
                                                     />
                                                 </Grid>

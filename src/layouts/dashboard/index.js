@@ -27,7 +27,7 @@ function Dashboard() {
       const { data } = await axios.get(
         "http://localhost:8000/api/v1/admin/summary"
       );
-      console.log("data?.data",data?.data);
+      
       setSummary(data?.data);
     }
     fetchData();

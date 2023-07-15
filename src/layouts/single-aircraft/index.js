@@ -58,6 +58,7 @@ function SingleAircraft() {
               </MDTypography>
               <MDBox component="form" role="form">
                 <MDBox mb={2}>
+                    <label>Manufacturer</label>
                   <MDInput
                     type="text"
                     name="manufacturer"
@@ -69,6 +70,7 @@ function SingleAircraft() {
                   />
                 </MDBox>
                 <MDBox mb={2}>
+                <label>Model</label>
                   <MDInput
                     type="text"
                     name="model"
@@ -80,6 +82,7 @@ function SingleAircraft() {
                   />
                 </MDBox>
                 <MDBox mb={2}>
+                <label>Classification</label>
                   <MDInput
                     type="text"
                     name="classification"
@@ -91,6 +94,7 @@ function SingleAircraft() {
                   />
                 </MDBox>
                 <MDBox mb={2}>
+                <label>Seat Number</label>
                   <MDInput
                     type="number"
                     name="seats"
@@ -102,6 +106,7 @@ function SingleAircraft() {
                   />
                 </MDBox>
                 <MDBox mb={2}>
+                <label>Speed</label>
                   <MDInput
                     type="text"
                     name="speed"
@@ -113,6 +118,7 @@ function SingleAircraft() {
                   />
                 </MDBox>
                 <MDBox mb={2}>
+                <label>Range</label>
                   <MDInput
                     type="text"
                     name="range"
@@ -124,6 +130,7 @@ function SingleAircraft() {
                   />
                 </MDBox>
                 <MDBox mb={2}>
+                <label>Luggage Capacity</label>
                   <MDInput
                     type="text"
                     name="luggage"
@@ -135,17 +142,12 @@ function SingleAircraft() {
                   />
                 </MDBox>
                 <MDBox mb={2}>
-                  <MDInput
-                    type="text"
-                    name="summary"
-                    onChange={(e) => {
-                      setSummary(e.target.value);
-                    }}
-                    value={aircraft.overview_summary}
-                    fullWidth
-                  />
+                <label>Summary</label>
+                 <p>{aircraft.overview_summary}</p>
+                    
                 </MDBox>
                 <MDBox mb={2}>
+                <label>Height</label>
                   <MDInput
                     type="text"
                     name="height"
@@ -157,6 +159,7 @@ function SingleAircraft() {
                   />
                 </MDBox>
                 <MDBox mb={2}>
+                <label>Width</label>
                   <MDInput
                     type="text"
                     name="width"
@@ -168,6 +171,7 @@ function SingleAircraft() {
                   />
                 </MDBox>
                 <MDBox mb={2}> 
+                <label>Image 1</label>
                    <img
                       height="400px"
                       width="100%"
@@ -176,10 +180,29 @@ function SingleAircraft() {
                     />
                 </MDBox>
                 <MDBox mb={2}>
+                <label>Image 2</label>
                     <img
                       height="400px"
                       width="100%"
                       src={aircraft.image_url_2}
+                      alt="Preview"
+                    />
+                </MDBox>
+                <MDBox mb={2}>
+                <label>Image 3</label>
+                    <img
+                      height="400px"
+                      width="100%"
+                      src={aircraft.image_url_3}
+                      alt="Preview"
+                    />
+                </MDBox>
+                <MDBox mb={2}>
+                <label>Image 4</label>
+                    <img
+                      height="400px"
+                      width="100%"
+                      src={aircraft.image_url_4}
                       alt="Preview"
                     />
                 </MDBox>
