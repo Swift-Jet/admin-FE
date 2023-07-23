@@ -68,14 +68,13 @@ function Aircraft() {
    
         e.preventDefault();
         axios
-            .post(`http://localhost:8000/api/v1/aircraft/add`, data)
+            .post(`https://swift-jet-backend.onrender.com/api/v1/aircraft/add`, data)
             .then((data) => {
-                setLoading(false)
+              setLoading(false)
               toast("Aircraft added successflly")
             })
             .catch((error) => {
                 setLoading(false);
-                console.log(error);
                 toast(error?.response?.data?.error);
             });
     };

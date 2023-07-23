@@ -73,7 +73,7 @@ export default function Data() {
   useEffect(() => {
     async function fetchData() {
       const { data } = await axios.get(
-        "http://localhost:8000/api/v1/admin/summary"
+        "https://swift-jet-backend.onrender.com/api/v1/admin/summary"
       );
 
       console.log(data);

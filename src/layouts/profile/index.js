@@ -30,7 +30,7 @@ function Profile() {
   useEffect(() => {
     async function fetchData() {
       const { data } = await axios.get(
-        "http://localhost:8000/api/v1/aircraft/all"
+        "https://swift-jet-backend.onrender.com/api/v1/aircraft/all"
       );
       setAircrafts(data?.data);
     }
@@ -104,9 +104,9 @@ function Profile() {
                 <Grid item xs={12} md={6} xl={3}>
                   <DefaultProjectCard
                     image={item.image_url}
-                    label={item.manufacturer}
+                    // label={item.manufacturer}
                     title={item.model}
-                    description={item.summary}
+                    description={item.maunfacturer}
                     action={{
                       type: "internal",
                       route: `/single-aircraft/${item._id}`,

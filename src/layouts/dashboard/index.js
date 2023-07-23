@@ -25,7 +25,7 @@ function Dashboard() {
   useEffect(() => {
     async function fetchData() {
       const { data } = await axios.get(
-        "http://localhost:8000/api/v1/admin/summary"
+        "https://swift-jet-backend.onrender.com/api/v1/admin/summary"
       );
       
       setSummary(data?.data);
@@ -73,7 +73,7 @@ function Dashboard() {
                 color="success"
                 icon="store"
                 title="Empty Legs"
-                count={summary.bookings_total}
+                count={summary.flight_total}
                 percentage={{
                   color: "success",
                   amount: "",

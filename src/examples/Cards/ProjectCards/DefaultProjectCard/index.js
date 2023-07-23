@@ -86,23 +86,28 @@ function DefaultProjectCard({
           }}
         />
       </MDBox>
-      <MDBox mt={1} mx={0.5}>
-        <MDTypography
-          height="50px"
-          variant="button"
-          fontWeight="regular"
-          color="text"
-          textTransform="capitalize"
-        >
-          {label}
-        </MDTypography>
+
+      <MDBox mt={1} mx={0.5} lineHeight={0}>
+        {label ? (
+          <MDBox mb={1} height="100px" lineHeight={0.5}>
+            <MDTypography
+              variant="button"
+              fontWeight="regular"
+              color="text"
+              textTransform="capitalize"
+            >
+              {label}
+            </MDTypography>
+          </MDBox>
+        ) : null}
+
         <MDBox mb={1}>
           {action?.type === "internal" ? (
             <MDTypography
               component={Link}
               to={action.route}
               variant="h6"
-              height={5}
+              height={"30px"}
               display="block"
             >
               {title}
@@ -114,7 +119,7 @@ function DefaultProjectCard({
               target="_blank"
               rel="noreferrer"
               variant="h6"
-              height="100px"
+              height="30px"
             >
               {title}
             </MDTypography>
@@ -122,7 +127,7 @@ function DefaultProjectCard({
         </MDBox>
         <MDBox mb={3} lineHeight={0}>
           <MDTypography
-            height="100px"
+            height="80px"
             variant="button"
             fontWeight="light"
             color="text"
