@@ -68,7 +68,7 @@ function Aircraft() {
    
         e.preventDefault();
         axios
-            .post(`https://swift-jet-backend.onrender.com/api/v1/aircraft/add`, data)
+            .post(`https://swiftwings-mw.onrender.com/api/v1/aircraft/add`, data)
             .then((data) => {
               setLoading(false)
               toast("Aircraft added successflly")

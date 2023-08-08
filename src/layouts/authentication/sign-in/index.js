@@ -34,7 +34,7 @@ function SignIn() {
     setLoading(true);
     e.preventDefault();
     axios
-      .post(`https://swift-jet-backend.onrender.com/api/v1/admin/login`, data)
+      .post(`https://swiftwings-mw.onrender.com/api/v1/admin/login`, data)
       .then((data) => {
         localStorage.setItem("authenticated", JSON.stringify(true));
         navigate("/")

@@ -18,7 +18,7 @@ function BillingInformation() {
     setLoading(true)
     const body = { status: status }
     const { data } = await axios.put(
-      `https://swift-jet-backend.onrender.com/api/v1/admin/update?_id=${details._id}`, body
+      `https://swiftwings-mw.onrender.com/api/v1/admin/update?_id=${details._id}`, body
     );
     setDetails(data?.data);
     setLoading(false)
@@ -39,7 +39,7 @@ function BillingInformation() {
   useEffect(() => {
     async function fetchData() {
       const { data } = await axios.get(
-        `https://swift-jet-backend.onrender.com/api/v1/admin/single?booking_number=${booking_no}`
+        `https://swiftwings-mw.onrender.com/api/v1/admin/single?booking_number=${booking_no}`
       );
       setDetails(data?.data);
       console.log(data?.data);

@@ -84,7 +84,7 @@ function SingleEmptyLeg() {
   
     setLoading(true);
     axios
-      .put(`https://swift-jet-backend.onrender.com/api/v1/flight/update/${id}`, flight)
+      .put(`https://swiftwings-mw.onrender.com/api/v1/flight/update/${id}`, flight)
       .then((data) => {
         console.log(data);
         setLoading(false);
@@ -99,7 +99,7 @@ function SingleEmptyLeg() {
   const handleDelete = (e) => {
     setLoading(true);
     axios
-      .delete(`https://swift-jet-backend.onrender.com/api/v1/flight/delete/${id}`)
+      .delete(`https://swiftwings-mw.onrender.com/api/v1/flight/delete/${id}`)
       .then((data) => {
         setLoading(false);
         toast("Aircraft deleted successflly");
@@ -114,7 +114,7 @@ function SingleEmptyLeg() {
 
   useEffect(() => {
     axios
-      .get(`https://swift-jet-backend.onrender.com/api/v1/flight/single?id=${id}`)
+      .get(`https://swiftwings-mw.onrender.com/api/v1/flight/single?id=${id}`)
       .then((data) => {
         setLoading(false);
         setFlight(data?.data?.data[0]);
@@ -125,7 +125,7 @@ function SingleEmptyLeg() {
       });
       async function fetchData() {
         const { data } = await axios.get(
-          `https://swift-jet-backend.onrender.com/api/v1/aircraft/all`
+          `https://swiftwings-mw.onrender.com/api/v1/aircraft/all`
         );
         setAircrafts(data?.data);
       }

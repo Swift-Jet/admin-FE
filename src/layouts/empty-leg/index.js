@@ -39,13 +39,13 @@ function EmptyLeg() {
   useEffect(() => {
     async function fetchData() {
       const { data } = await axios.get(
-        `https://swift-jet-backend.onrender.com/api/v1/aircraft/all`
+        `https://swiftwings-mw.onrender.com/api/v1/aircraft/all`
       );
       setAircrafts(data?.data);
     }
     async function fetchFlights() {
       const { data } = await axios.get(
-        `https://swift-jet-backend.onrender.com/api/v1/flight/all`
+        `https://swiftwings-mw.onrender.com/api/v1/flight/all`
       );
       setFlights(data?.data);
     }
@@ -109,7 +109,7 @@ function EmptyLeg() {
   const handleSubmit = () => {
     setLoading(true);
     axios
-      .post(`https://swift-jet-backend.onrender.com/api/v1/flight/add`, formData)
+      .post(`https://swiftwings-mw.onrender.com/api/v1/flight/add`, formData)
       .then((data) => {
         setLoading(false);
         toast("Flight added successflly");

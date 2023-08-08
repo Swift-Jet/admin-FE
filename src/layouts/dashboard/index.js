@@ -25,7 +25,7 @@ function Dashboard() {
   useEffect(() => {
     async function fetchData() {
       const { data } = await axios.get(
-        "https://swift-jet-backend.onrender.com/api/v1/admin/summary"
+        "https://swiftwings-mw.onrender.com/api/v1/admin/summary"
       );
       
       setSummary(data?.data);

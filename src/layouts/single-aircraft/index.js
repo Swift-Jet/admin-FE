@@ -60,7 +60,7 @@ function SingleAircraft() {
     }
 
     axios
-      .put(`https://swift-jet-backend.onrender.com/api/v1/aircraft/update/${id}`, formData)
+      .put(`https://swiftwings-mw.onrender.com/api/v1/aircraft/update/${id}`, formData)
       .then((data) => {
         setLoading(false);
 
@@ -76,7 +76,7 @@ function SingleAircraft() {
   const handleDelete = (e) => {
     setLoading(true);
     axios
-      .delete(`https://swift-jet-backend.onrender.com/api/v1/aircraft/delete/${id}`)
+      .delete(`https://swiftwings-mw.onrender.com/api/v1/aircraft/delete/${id}`)
       .then((data) => {
         setLoading(false);
         toast("Aircraft deleted successflly");
@@ -90,7 +90,7 @@ function SingleAircraft() {
 
   useEffect(() => {
     axios
-      .get(`https://swift-jet-backend.onrender.com/api/v1/aircraft/single?id=${id}`)
+      .get(`https://swiftwings-mw.onrender.com/api/v1/aircraft/single?id=${id}`)
       .then((data) => {
         setLoading(false);
         setAircraft(data?.data?.data[0]);
